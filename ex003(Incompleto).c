@@ -2,36 +2,58 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main(){
-  setlocale(LC_ALL, "portuguese");
-  int escolha;
-  char nome[300];
-  int numero;
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
 
-  printf("Escolha uma opção:\n1-Adicionar um número.\n2-Olhar os numeros cadastrados.\n3-Encerrar o software.\n");
-  scanf("%d", escolha);  
-  
-  do
-  {
-  switch (escolha)
-  {
-  case 1:
-    printf("Digite o nome do contato: ");
-    gets(nome);
-    fflush(stdin);
-    printf("Digite um número de telefone: ");
-    scanf("%d", &numero);
-    break;
-  case 2:
-    printf("Nome do contato: %s\n", nome);
-    printf("Numero: %d\n", numero);
-    break;
-  case 3:
-  default:
-    break;
-  }
-  } while (escolha =! '3');
-  
+    int j;
+    char nomes[99999][300];
+    char numeroT[99999][300];
+    int i;
+    int sal = 0;
 
-  return 0;
+    do
+    {
+        printf("\nEscolha uma opÃ§Ã£o\n");
+        printf("1 - Salvar novo numero. \n");
+        printf("2 - Exibir os numeros salvos. \n");
+        scanf("%d", &j);
+        printf("\n");
+
+        fflush(stdin);
+
+        switch (j)
+        {
+
+        case 1:
+
+            printf("Digite o nome do contato: ");
+            gets(nomes[sal]);
+
+            printf("Digite o numero do whatsapp: ");
+            gets(numeroT[sal]);
+
+            salvo++;
+            break;
+
+        case 2:
+
+            for (i = 0; i < sal; i++)
+            {
+
+                printf("Nome do contato: %s \n", nomes[i]);
+                printf("Numero do whatsapp: %s \n", numeroT[i]);
+                printf("\n");
+            }
+
+            break;
+
+        default:
+            printf("OpÃ§Ã£o invalida. \n");
+            break;
+        }
+
+    } while (j != 2);
+
+return 0;
 }
